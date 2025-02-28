@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+body{
+	background: url(/Moffat-Bay/images/Moffat_Bay_View.jpg) no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: cover;
+	font-family: "Lexend", serif;
+  	font-optical-sizing: auto;
+  	font-weight: 300;
+  	font-style: normal;
+}
+
+.navbar {
+	font-size: 18px;
+}
+
+.navbar-brand {
+	font-size: 24px;
+	font-weight: 400;
+}
+
+.nav-link {
+	color: black !important;
+}
+
+.nav-link:hover {
+	color: #505050 !important;
+}
+
+#container {
+	padding-top: 14vh;
+	padding-bottom: 20vh;
+}
+
+form{
+    background: #fff;
+}
+.form-container{
+    border-radius: 20px;
+    padding: 50px;
+}
+
+.form-group {
+	padding-bottom: 10px;
+}
+
+.button-group {
+	padding-top: 10px;
+	padding-bottom: 30px;
+}
+
+h1 {
+	font-size: 50px;
+	padding-bottom: 10px;
+	padding-top: 20px;
+}
+
+.btn-outline-success {
+	max-width: 100%;
+	padding: 6px 25px;
+}
+

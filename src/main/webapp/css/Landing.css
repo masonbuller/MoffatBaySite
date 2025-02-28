@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+body{
+	background: url(/Moffat-Bay/images/Moffat_Bay_View.jpg) no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: cover;
+	font-family: "Lexend", serif;
+  	font-optical-sizing: auto;
+  	font-weight: 300;
+  	font-style: normal;
+}
+
+.navbar {
+	font-size: 18px;
+}
+
+.navbar-brand {
+	font-size: 24px;
+	font-weight: 400;
+}
+
+.nav-link {
+	color: black !important;
+}
+
+.nav-link:hover {
+	color: #505050 !important;
+}
+
+#container1 {
+	margin-top: 20vh;
+	margin-bottom: 20vh;
+	color: white;
+}
+
+#container2 {
+	margin-top: 20vh;
+	margin-bottom: 20vh;
+	background-color: white;
+}
+
+#container3 {
+	margin-top: 20vh;
+	margin-bottom: 20vh;
+	color: white;
+}
+
+h1 {
+	font-size: 50px;
+	padding-bottom: 10px;
+	padding-top: 20px;
+}
+
+#button1 {
+	padding-top: 30px;
+	padding-bottom: 50px;
+}
+
+#button2 {
+	padding-bottom: 50px;
+}
+
+#group {
+	padding: 20px 40px 0px 40px;
+}
+
+#group2 {
+	padding: 40px 0px 20px 0px;
+	margin-bottom: 20px;
+	width: 100%;
+}
+
+#group3 {
+	padding: 20px 40px 0px 40px;
+	font-size: 50px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#sections {
+	display: inline-block;
+	padding-bottom: 5vh;
+	padding-left: 35px;
+	font-size: 26px;
+}
+
+#description {
+	font-size: 20px;
+}
+
+.exploring {
+	padding-bottom: 30px;
+	padding-top: 20px;
+	font-size: 40px;
+}

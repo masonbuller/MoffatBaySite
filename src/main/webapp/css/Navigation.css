@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+body{
+	background: url(/Moffat-Bay/images/Moffat_Bay_View.jpg) no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: cover;
+	font-family: "Lexend", serif;
+  	font-optical-sizing: auto;
+  	font-weight: 300;
+  	font-style: normal;
+}
+
+.navbar {
+	font-size: 18px;
+}
+
+.navbar-brand {
+	font-size: 26px;
+	font-weight: 400;
+}
+
+.nav-link {
+	color: black !important;
+}
+
+.nav-link:hover {
+	color: #505050 !important;
+}
