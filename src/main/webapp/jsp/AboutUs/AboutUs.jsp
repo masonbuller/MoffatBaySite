@@ -13,8 +13,7 @@
 	</head>
 <body>
 	<%
-		HttpSession mysession = request.getSession(false);
-		if (mysession == null || mysession.getAttribute("email") == null) {
+		if (session == null || session.getAttribute("email") == null) {
 			request.setAttribute("loginStatus", "Login");
 		} else {
 			request.setAttribute("loginStatus", "Logged In");
@@ -44,14 +43,28 @@
           				<a class="nav-link" href="/Moffat-Bay/jsp/ReservationLookup/ReservationLookup.jsp">Reservation Lookup</a>
         			</li>
         			<li class="nav-item px-2">
-          				<a class="nav-link" href="/Moffat-Bay/jsp/UserRegistration/UserRegistration.jsp">User Registration</a>
-        			</li>
-        			<li class="nav-item px-2">
           				<a class="nav-link" href="/Moffat-Bay/jsp/AboutUs/AboutUs.jsp">About Us</a>
         			</li>
-        			<li class="nav-item px-2">
-          				<a class="nav-link" href="/Moffat-Bay/jsp/Login/loginForm.jsp"><%= request.getAttribute("loginStatus") %></a>
-        			</li>
+        			<%
+        				if (request.getAttribute("loginStatus") == "Logged In") {
+        			%>
+        				<li class="nav-item dropdown">
+          					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            				<%= request.getAttribute("loginStatus") %>
+          					</a>
+          					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            					<li><button class="dropdown-item" type="submit">Log Out</button></li>
+          					</ul>
+        				</li>
+        			<% 
+        				} else {
+        			%>
+        				<li class="nav-item px-2">
+          					<a class="nav-link" href="/Moffat-Bay/jsp/Login/loginForm.jsp"><%= request.getAttribute("loginStatus") %></a>
+        				</li>
+        			<%
+        				}
+        			%>
       			</ul>
     		</div>
   		</div>
