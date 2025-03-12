@@ -11,13 +11,13 @@
 <h2>YouTube Overview</h2>
 <p>This video displays the website and its functionality. You can see all of the different error and success messages that are displayed to the user.</p>
 <p>
-  <a href="youtube link">
-  <img src="image link" height=80% width= 80% alt="alt desc">
+  <a href="https://www.youtube.com/watch?v=WU7Rgo1SBc8">
+  <img src="https://imgur.com/zbVZJwo.png" height=80% width= 80% alt="Moffay Bay Desktop Video">
 </a></p>
 <p>This video displays the website and its functionality in mobile format.</p>
 <p>
-  <a href="youtube link">
-  <img src="image link" height=80% width= 80% alt="alt desc">
+  <a href="https://youtu.be/f_eAnc3ycyc">
+  <img src="https://imgur.com/ibykXFP.png" height=80% width= 20% alt="Moffat Bay Mobile Video">
 </a></p>
 
 <br>
