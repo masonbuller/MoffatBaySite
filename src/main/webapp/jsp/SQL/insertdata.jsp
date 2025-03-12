@@ -14,7 +14,7 @@
         Class.forName("com.mysql.cj.jdbc.Driver");
         String url = "jdbc:mysql://localhost:3306/MoffatBay";
 
-        con = DriverManager.getConnection(url,"root","Summertime250!");
+        con = DriverManager.getConnection(url,"root","*****");
         stmt = con.createStatement();
 
         stmt = con.createStatement();
