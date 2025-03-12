@@ -36,13 +36,13 @@
           				<a class="nav-link" href="/Moffat-Bay/jsp/Attractions/Attractions.jsp">Attractions</a>
         			</li>
         			<li class="nav-item px-2">
-          				<a class="nav-link" href="/Moffat-Bay/jsp/Reservation/BookReservation.jsp">Book Reservation</a>
+          				<a class="nav-link" href="/Moffat-Bay/jsp/Reservation/LodgingOptions.jsp">Book Reservation</a>
         			</li>
         			<li class="nav-item px-2">
           				<a class="nav-link" href="/Moffat-Bay/jsp/ReservationLookup/ReservationLookup.jsp">Reservation Lookup</a>
         			</li>
         			<li class="nav-item px-2">
-          				<a class="nav-link" href="/Moffat-Bay/jsp/AboutUs/AboutUs.jsp">About Us</a>
+          				<a class="nav-link" href="/Moffat-Bay/jsp/AboutUs/ContactUs.jsp">Contact Us</a>
         			</li>
         			<%
         				if (request.getAttribute("loginStatus") == "Logged In") {
@@ -52,6 +52,9 @@
             				<%= request.getAttribute("loginStatus") %>
           					</a>
           						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          							<form action="/Moffat-Bay/account" method="post">
+            							<li><button class="dropdown-item" type="submit">My Account</button></li>
+            						</form>
           							<form action="/Moffat-Bay/logout" method="post">
             							<li><button class="dropdown-item" type="submit">Log Out</button></li>
             						</form>
@@ -70,7 +73,7 @@
     		</div>
   		</div>
 	</nav>
-<%
+	<%
 		if (session.getAttribute("errorMessage") != null) {
 			if (session.getAttribute("errorMessage") == "BookingError") {
 				session.setAttribute("message", "Unable to make reservation");
@@ -82,8 +85,8 @@
 				session.setAttribute("message", "Date range cannot start or end before the current date");
 			} else if (session.getAttribute("errorMessage") == "YearAfter") {
 				session.setAttribute("message", "Year must be before 2028. Please contact us for details on booking past this date.");
-			} else {
-				session.setAttribute("message", "Debugging check code");
+			} else if (session.getAttribute("errorMessage") == "ExistingReservation") {
+				session.setAttribute("message", "Existing reservation. Please contact us to make multiple reservations.");
 			} 
 			%>
 			<div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -119,10 +122,10 @@
 					<div class="form-group">
 						<label class="form-label font-weight-bold">Room Type</label>
 							<select name="room_type" id="room_type" required>
-								<option value="1 King Bed">1 King Bed</option>
-								<option value="1 Queen Bed">1 Queen Bed</option>
-								<option value="2 Queen Beds">2 Queen Beds</option>
-								<option value="2 Full Beds">2 Full Beds</option>
+								<option value="Deluxe King Lodge">Deluxe King Lodge</option>
+								<option value="Premium Queen Lodge">Premium Queen Lodge</option>
+								<option value="Premium Two Queen Lodge">Premium Two Queen Lodge</option>
+								<option value="Two Full Suite">Two Full Suite</option>
 							</select>
 					</div>
 					

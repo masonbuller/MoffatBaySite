@@ -4,13 +4,14 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Landing Page</title>
+	<title>Account Summary</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-		<link rel="stylesheet" href="/Moffat-Bay/css/Landing.css">
+		<link rel="stylesheet" href="/Moffat-Bay/css/Account.css">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 </head>
 <body>
 	<%
@@ -75,96 +76,67 @@
     		</div>
   		</div>
 	</nav>
-	<%
-		if (session.getAttribute("landingMessage") != null) {
-			if (session.getAttribute("landingMessage") == "loginSuccess") {
-				session.setAttribute("message", "Successfully logged in");
-			} else if (session.getAttribute("landingMessage") == "bookingSuccess") {
-				session.setAttribute("message", "Reservation booked successfully");
-			} else if (session.getAttribute("landingMessage") == "contactSuccess") {
-				session.setAttribute("message", "Contact request sent successfully. Someone will be in touch with you shortly");
-			} else if (session.getAttribute("landingMessage") == "logoutSuccess") {
-				session.setAttribute("message", "Successfully logged out.");
-			}
-			
-			%>
-			<div class="alert alert-success alert-dismissible fade show" role="alert">
-  				<strong>Success!</strong> <%= session.getAttribute("message") %>
-  				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-			</div>
-	<%
-		} 
-
-		else if (session.getAttribute("landingErrorMessage") != null) {
-			if (session.getAttribute("landingErrorMessage") == "accountSummary") {
-				session.setAttribute("errorMessage", "Error retrieving account information. Please try again.");
-			}
-	%>
-			<div class="alert alert-danger alert-dismissible fade show" role="alert">
-  				<strong>ERROR: </strong> <%= session.getAttribute("errorMessage") %>
-  				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-			</div>
-			
-	<%
-		}
-
-		session.removeAttribute("landingErrorMessage");
-		session.removeAttribute("landingMessage");
-	%>
-	<div class="container-fluid" id="container1">
+	<div class="container-fluid" id="containerHeader">
 		<section class="row justify-content-center">
-			<section class="col-12 col-sm-6 col-md-8">
-				<section id="group">
-					<div class="form-group" id="logo">
-						<h1>Moffat Bay</h1>
+			<section class="text-center" id="header">
+				<h1>Account Summary</h1>
+			</section>
+		</section>
+	</div>
+	<div class="container-fluid" id="containerMain">
+		<section class="row justify-content-center">
+			<section id="inline">
+				<section class="col-md-3" id="menu">
+					<div class="section">
+						<a href="/Moffat-Bay/jsp/Account/Account.jsp">My Account</a>
 					</div>
-					<div class="form-group" id="description">
-						<p>Welcome to Moffat Bay, where we have endless options. Discover more when you book a room at Moffat Bay. From canoeing, whale watching, and sailing, there will always be more to explore. Book now to experience everything we have to offer.</p>
+					<div class="section">
+						<a href="/Moffat-Bay/jsp/Account/AccountRes.jsp">Reservation</a>
 					</div>
-					<div class="button-group" id="button1">
-						<a href="/Moffat-Bay/jsp/Reservation/BookReservation.jsp"><button type="button" class="btn btn-lg btn-light">BOOK NOW</button></a>
+				</section>
+				<section class="col-md-3" id="grouped">
+					<div class="infoHeader">
+						<h3>Reservation Info</h3>
 					</div>
+					<%
+						if (session.getAttribute("Reservation") == "False" || session.getAttribute("resID") == null) {
+							
+					%>
+						<div class="section">
+							<label class="info">None Found</label>
+						</div>
+					<%
+						} else {
+					%>
+						<div class="section">
+							<label class="label">Reservation ID</label><br>
+							<label class="res"><%= session.getAttribute("resID") %></label>
+						</div>
+						<div class="section">
+							<label class="label">Dates</label><br>
+							<label class="res"><%= session.getAttribute("dates") %></label>
+						</div>
+						<div class="section">
+							<label class="label">Room</label><br>
+							<label class="res"><%= session.getAttribute("room") %></label>
+						</div>
+						<div class="section">
+							<label class="label">Guests</label><br>
+							<label class="res"><%= session.getAttribute("guests") %></label>
+						</div>
+						<div class="section">
+							<label class="label">Total</label><br>
+							<label class="res">$<%= session.getAttribute("total") %></label>
+						</div>
+					
+					<%
+						}
+					
+						session.removeAttribute("Reservation");
+					%>
 				</section>
 			</section>
 		</section>
 	</div>
-	<div class="container-fluid" id="container2">
-		<section class="row justify-content-center">
-			<section class="col-12" id="inline">
-				<section class="text-center" id="group2">
-					<div class="form-group text-center" id="exploring">
-						<h2 class="exploring">Explore what we have to offer</h2>
-					</div>
-					<div class="form-group" id="sections">
-						<p>Campfires</p>
-						<img alt="logo" src="/Moffat-Bay/images/Campfire.jpg" height="400px">
-					</div>
-					<div class="form-group" id="sections">
-						<p>Main Lodge</p>
-						<img alt="logo" src="/Moffat-Bay/images/lodge.jpg" height="400px">
-					</div>
-					<div class="form-group" id="sections">
-						<p>Canoeing</p>
-						<img alt="logo" src="/Moffat-Bay/images/canoe_dirt.jpg" height="400px">
-					</div>
-				</section>
-			</section>
-		</section>
-	</div>
-	<div class="container-fluid" id="container3">
-		<section class="row justify-content-center">
-			<section class="col-12 col-sm-6 col-md-8">
-				<section id="group3">
-					<div class="form-group" id="review">
-						<p>Where travel meets comfort. Explore endlessly, comfortably.</p>
-					</div>
-					<div class="button-group" id="button2">
-						<a href="/Moffat-Bay/jsp/Attractions/Attractions.jsp"><button type="button" class="btn btn-lg btn-light">Explore More</button></a>
-					</div>
-				</section>
-			</section>
-		</section>
-	</div>
-	<jsp:include page="/jsp/Landing/Footer.jsp" flush="true"/>
 </body>
 </html>

@@ -1,16 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
 <head>
-    	<title>Attractions</title>
-    	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Attractions</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-		<link rel="stylesheet" href="/Moffat-Bay/css/AboutUs.css">
+		<link rel="stylesheet" href="/Moffat-Bay/css/Attractions.css">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
-	</head>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+</head>
 <body>
 	<%
 		if (session == null || session.getAttribute("email") == null) {
@@ -37,13 +39,13 @@
           				<a class="nav-link" href="/Moffat-Bay/jsp/Attractions/Attractions.jsp">Attractions</a>
         			</li>
         			<li class="nav-item px-2">
-          				<a class="nav-link" href="/Moffat-Bay/jsp/Reservation/BookReservation.jsp">Book Reservation</a>
+          				<a class="nav-link" href="/Moffat-Bay/jsp/Reservation/LodgingOptions.jsp">Book Reservation</a>
         			</li>
         			<li class="nav-item px-2">
           				<a class="nav-link" href="/Moffat-Bay/jsp/ReservationLookup/ReservationLookup.jsp">Reservation Lookup</a>
         			</li>
         			<li class="nav-item px-2">
-          				<a class="nav-link" href="/Moffat-Bay/jsp/AboutUs/AboutUs.jsp">About Us</a>
+          				<a class="nav-link" href="/Moffat-Bay/jsp/AboutUs/ContactUs.jsp">Contact Us</a>
         			</li>
         			<%
         				if (request.getAttribute("loginStatus") == "Logged In") {
@@ -53,6 +55,9 @@
             				<%= request.getAttribute("loginStatus") %>
           					</a>
           						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          							<form action="/Moffat-Bay/account" method="post">
+            							<li><button class="dropdown-item" type="submit">My Account</button></li>
+            						</form>
           							<form action="/Moffat-Bay/logout" method="post">
             							<li><button class="dropdown-item" type="submit">Log Out</button></li>
             						</form>
@@ -71,54 +76,36 @@
     		</div>
   		</div>
 	</nav>
-	<div class="container-fluid" id="container">
-		<section class="row">
-			<section class="col-md-4">
-				<form class="form-container" action="/Moffat-Bay/whalewatching" method="post">
-					<div class="form-group">
-						<h1 class="text-center">Whale Watching</h1>
-					</div>
-					<div class="text-center">
-						<img src="/Moffat-Bay/images/Orcas.jpg" width="100%">
-					</div>
-					<div class="text-center">
-						<p>Come watch the whales in the beautiful Griffin Bay.</p>
-					</div>
-				</form>
+	<div class="container-fluid" id="containerHeader">
+		<section class="row justify-content-center">
+			<section class="text-center" id="header">
+				<h1>Our Attractions</h1>
 			</section>
-			<section class="col-md-4">
-				<form class="form-container" action="/Moffat-Bay/canoeing" method="post">
-					<div class="form-group">
-						<h1 class="text-center">Canoeing</h1>
+		</section>
+	</div>
+	<div class="container-fluid" id="container2">
+		<section class="row justify-content-center">
+			<section class="col-12" id="inline">
+				<section class="text-center" id="grouped">
+					<div class="form-group" id="sections">
+						<label>Canoeing</label><br>
+						<img class="pics" alt="logo" src="/Moffat-Bay/images/canoeing.jpg" height="350px">
+						<p class="desc">Discover the beauty of nature from the water as you glide through peaceful lakes, winding rivers, and hidden coves. Canoeing offers a unique way to explore breathtaking landscapes, spot local wildlife, and enjoy the tranquility of the outdoors. We offer options for all groups from sunrise to sunset.</p>
+						<p class="desc">Whether you're a beginner looking for a relaxing paddle or an experienced adventurer seeking a challenge, canoeing is perfect for single travelers, couples, or families alike. Rent a canoe, grab a paddle, and set off on an unforgettable journey!</p>
 					</div>
-					<div class="text-center">
-						<img src="/Moffat-Bay/images/Canoe.jpg" width="100%">
+					<div class="form-group" id="sections">
+						<label>Hiking Tours</label><br>
+						<img class="pics" alt="logo" src="/Moffat-Bay/images/hikingtour.jpg" height="350px">
+						<p class="desc">Discover breathtaking landscapes, hidden trails, and local wildlife on a guided hike led by experienced experts. Whether you're trekking through lush forests, scaling scenic ridges, or strolling along peaceful nature paths, these hikes offer a deeper connection to the great outdoors.</p>
+						<p class="desc">From easy nature walks to challenging mountain climbs, guided hikes cater to all abilities. Learn about the area's history, ecology, and wildlife while enjoying a safe and enriching outdoor adventure. Lace up your boots and explore with confidence!</p>
 					</div>
-					<div class="text-center">
-						<p>Canoe around the islands. You will be able to see a lot of great wildlife!</p>
+					<div class="form-group" id="sections">
+						<label>Sailing</label><br>
+						<img class="pics" alt="logo" src="/Moffat-Bay/images/Sailing.jpg" height="350px">
+						<p class="desc">Set sail on calm waters and take in breathtaking views, from rugged cliffs to charming waterfront towns. Whether you're steering the boat or simply soaking in the sights, every journey offers a unique perspective of the bay’s natural beauty.</p>
+						<p class="desc">Navigate the bay in a small sail boat, kayak, or canoe for a closer connection to the water. Drift past rocky shores, quiet coves, and local wildlife, taking in the peaceful surroundings at your own pace. Whether you're seeking adventure or a moment of calm, the bay offers a perfect escape.</p>
 					</div>
-				</form>
-			</section>
-			<section class="col-md-4">
-				<form class="form-container" action="/Moffat-Bay/beachfun" method="post">
-					<div class="form-group">
-						<h1 class="text-center">Sailing</h1>
-					</div>
-					<div class="text-center">
-						<img src="/Moffat-Bay/images/Sailing.jpg" width="100%">
-					</div>
-					<div class="text-center">
-						<p>Sailing is a great way to relax and soak up the sun.</p>
-					</div>
-				</form>
-			</section>
-		<section class="row">
-			<section class="col-sm-2" text="center">
-				<form class="form-container" action="/Moffat-Bay/contact" method="post">
-					<div class="form-group" id="contact">
-						<p class="text-center"><a href="/Moffat-Bay/jsp/Reservation/BookReservation.jsp">Book a Room</a></p>
-					</div>
-				</form>
+				</section>
 			</section>
 		</section>
 	</div>

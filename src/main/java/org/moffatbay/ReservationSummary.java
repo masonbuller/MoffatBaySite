@@ -47,7 +47,7 @@ public class ReservationSummary extends HttpServlet {
 				ResultSet reservationCheck = SQLStatements.checkReservation(customerID);
 				if (reservationCheck.next()) {
 					session.setAttribute("errorMessage", "ExistingReservation");
-					resp.sendRedirect("jsp/Reservation/BookReservationError.jsp");
+					resp.sendRedirect("jsp/Reservation/BookReservation.jsp");
 				} else {
 					String check_in = (String) session.getAttribute("check_in");
 					String check_out = (String) session.getAttribute("check_out");

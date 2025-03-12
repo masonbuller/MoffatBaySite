@@ -56,7 +56,7 @@
     }
     
     try {
-    	String sql = "CREATE TABLE Room (RoomID int NOT NULL AUTO_INCREMENT, Bed_type varchar(20) NOT NULL, Cost double NOT NULL, PRIMARY KEY(RoomID));";
+    	String sql = "CREATE TABLE Room (RoomID int NOT NULL AUTO_INCREMENT, Bed_type varchar(40) NOT NULL, Cost double NOT NULL, PRIMARY KEY(RoomID));";
     	stmt.executeUpdate(sql);
     } catch (SQLException e){
     	System.out.println("Create Room table failed");

@@ -36,22 +36,55 @@ body {
 	color: white;
 }
 
-#sections {
-	padding: 25px;
+#section1 {
+	padding: 35px 35px 35px 35px;
+	margin: 10px 10px 100px 10px;
 	display: inline-block;
+	vertical-align: top;
 	background-color: white;
-	margin: 10px 10px 60px 10px;
+}
+
+#section2 {
+	padding: 35px 35px 35px 35px;
+	margin: 10px 10px 100px 10px;
+	display: inline-block;
+	vertical-align: top;
+	background-color: white;
+}
+
+#section2 div {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+#section2 .title {
+	font-weight: 400;
 }
 
 label {
-	font-size: 24px;
+	font-size: 18px;
+	padding-top: 5px;
+	display: flex;
+}
+
+#formbutton {
+	padding-top: 15px;
+}
+
+.infoHeader {
+	font-size: 22px;
+	font-weight: 400;
+}
+
+p {
+	font-weight: 400;
+}
+
+.message {
+	font-size: 20px;
 	padding-bottom: 15px;
 }
 
-.desc {
-	width: 350px;
-}
-
-.pics {
-	padding-bottom: 15px;
+.form-group {
+	padding-bottom: 5px;
 }

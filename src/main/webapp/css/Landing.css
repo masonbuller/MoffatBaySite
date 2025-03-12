@@ -16,7 +16,7 @@ body{
 }
 
 .navbar-brand {
-	font-size: 24px;
+	font-size: 26px;
 	font-weight: 400;
 }
 
@@ -37,6 +37,7 @@ body{
 #container2 {
 	margin-top: 20vh;
 	margin-bottom: 20vh;
+	padding-top: 20px;
 	background-color: white;
 }
 
@@ -78,19 +79,34 @@ h1 {
 	margin-right: auto;
 }
 
-#sections {
-	display: inline-block;
-	padding-bottom: 5vh;
-	padding-left: 35px;
-	font-size: 26px;
-}
-
 #description {
 	font-size: 20px;
 }
 
-.exploring {
-	padding-bottom: 30px;
-	padding-top: 20px;
-	font-size: 40px;
+@media screen and (min-width: 600px) {
+	#sections {
+		display: inline-block;
+		padding-bottom: 5vh;
+		padding-left: 35px;
+		font-size: 26px;
+	}
+	
+	.exploring {
+		padding-bottom: 30px;
+		padding-top: 20px;
+		font-size: 40px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	#sections {
+		padding-bottom: 5vh;
+		font-size: 26px;
+	}
+	
+	.exploring {
+		padding-bottom: 30px;
+		padding-top: 20px;
+		font-size: 40px;
+	}
 }

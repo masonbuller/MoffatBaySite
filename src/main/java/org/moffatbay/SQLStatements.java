@@ -213,12 +213,35 @@ public class SQLStatements implements Serializable{
 	}
 	
 	
-	public static void closeConnection() throws SQLException {
-        try {
-            statement.close();
-            connection.close();
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
+	public static ResultSet getRegistrationInfo(String email) {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+	        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/MoffatBay","root","Summertime250!");
+	        PreparedStatement statement = connection.prepareStatement("SELECT * from Registration WHERE Email = ?");
+	        statement.setString(1, email);
+	        resultSet = statement.executeQuery();
+		} catch (SQLException e){
+			System.out.println(e);
+		} catch (ClassNotFoundException e) {
+			System.out.println(e);
+		}
+        
+        return resultSet;
+	}
+	
+	public static ResultSet getReservationInfo(String email) {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+	        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/MoffatBay","root","Summertime250!");
+	        PreparedStatement statement = connection.prepareStatement("SELECT * from Reservation WHERE Email = ?");
+	        statement.setString(1, email);
+	        resultSet = statement.executeQuery();
+		} catch (SQLException e){
+			System.out.println(e);
+		} catch (ClassNotFoundException e) {
+			System.out.println(e);
+		}
+        
+        return resultSet;
+	}
 }		

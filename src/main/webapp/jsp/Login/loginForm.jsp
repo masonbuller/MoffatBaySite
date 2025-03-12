@@ -36,13 +36,13 @@
           				<a class="nav-link" href="/Moffat-Bay/jsp/Attractions/Attractions.jsp">Attractions</a>
         			</li>
         			<li class="nav-item px-2">
-          				<a class="nav-link" href="/Moffat-Bay/jsp/Reservation/BookReservation.jsp">Book Reservation</a>
+          				<a class="nav-link" href="/Moffat-Bay/jsp/Reservation/LodgingOptions.jsp">Book Reservation</a>
         			</li>
         			<li class="nav-item px-2">
           				<a class="nav-link" href="/Moffat-Bay/jsp/ReservationLookup/ReservationLookup.jsp">Reservation Lookup</a>
         			</li>
         			<li class="nav-item px-2">
-          				<a class="nav-link" href="/Moffat-Bay/jsp/AboutUs/AboutUs.jsp">About Us</a>
+          				<a class="nav-link" href="/Moffat-Bay/jsp/AboutUs/ContactUs.jsp">Contact Us</a>
         			</li>
         			<%
         				if (request.getAttribute("loginStatus") == "Logged In") {
@@ -52,6 +52,9 @@
             				<%= request.getAttribute("loginStatus") %>
           					</a>
           						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          							<form action="/Moffat-Bay/account" method="post">
+            							<li><button class="dropdown-item" type="submit">My Account</button></li>
+            						</form>
           							<form action="/Moffat-Bay/logout" method="post">
             							<li><button class="dropdown-item" type="submit">Log Out</button></li>
             						</form>
@@ -96,7 +99,7 @@
   			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		</div>
 	<%
-			session.removeAttribute("loginMessage");
+			session.removeAttribute("loginSuccess");
 		}
 	%>
 	<div class="container-fluid" id="container">
@@ -121,7 +124,7 @@
 						<button type="submit" class="btn btn-outline-success">Sign In</button>
 					</div>
 					<div class="form-footer">
-          				<p> Don't have an account? <a href="/Moffat-Bay/jsp/UserRegistration/UserRegistration.jsp">Sign Up</a></p>
+          				<p> New user? <a href="/Moffat-Bay/jsp/UserRegistration/UserRegistration.jsp">Sign Up</a></p>
         			</div>
 				</form>
 			</section>

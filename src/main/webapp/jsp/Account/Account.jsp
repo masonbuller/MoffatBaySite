@@ -1,17 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
 <head>
-    	<title>About Us Form</title>
-    	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Account Summary</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-		<link rel="stylesheet" href="/Moffat-Bay/css/AboutUs.css">
+		<link rel="stylesheet" href="/Moffat-Bay/css/Account.css">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
-	</head>
-<body>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+</head>
 	<%
 		if (session == null || session.getAttribute("email") == null) {
 			request.setAttribute("loginStatus", "Login");
@@ -19,7 +20,7 @@
 			request.setAttribute("loginStatus", "Logged In");
 		}
 	%>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<nav class="navbar navbar-expand-xl navbar-light bg-light">
   		<div class="container-fluid">
     		<a class="navbar-brand px-4" href="/Moffat-Bay/jsp/Landing/LandingPage.jsp">
     			<img alt="logo" src="/Moffat-Bay/images/SalishSalmon.png" width="30px" height="30px">
@@ -37,13 +38,13 @@
           				<a class="nav-link" href="/Moffat-Bay/jsp/Attractions/Attractions.jsp">Attractions</a>
         			</li>
         			<li class="nav-item px-2">
-          				<a class="nav-link" href="/Moffat-Bay/jsp/Reservation/BookReservation.jsp">Book Reservation</a>
+          				<a class="nav-link" href="/Moffat-Bay/jsp/Reservation/LodgingOptions.jsp">Book Reservation</a>
         			</li>
         			<li class="nav-item px-2">
           				<a class="nav-link" href="/Moffat-Bay/jsp/ReservationLookup/ReservationLookup.jsp">Reservation Lookup</a>
         			</li>
         			<li class="nav-item px-2">
-          				<a class="nav-link" href="/Moffat-Bay/jsp/AboutUs/AboutUs.jsp">About Us</a>
+          				<a class="nav-link" href="/Moffat-Bay/jsp/AboutUs/ContactUs.jsp">Contact Us</a>
         			</li>
         			<%
         				if (request.getAttribute("loginStatus") == "Logged In") {
@@ -52,9 +53,14 @@
           					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             				<%= request.getAttribute("loginStatus") %>
           					</a>
-          					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            					<li><button class="dropdown-item" type="submit">Log Out</button></li>
-          					</ul>
+          						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          							<form action="/Moffat-Bay/account" method="post">
+            							<li><button class="dropdown-item" type="submit">My Account</button></li>
+            						</form>
+          							<form action="/Moffat-Bay/logout" method="post">
+            							<li><button class="dropdown-item" type="submit">Log Out</button></li>
+            						</form>
+          						</ul>
         				</li>
         			<% 
         				} else {
@@ -69,52 +75,43 @@
     		</div>
   		</div>
 	</nav>
-	<div class="container-fluid" id="container">
-		<section class="row">
-			<section class="col">
-				<form class="form-container">
-					<div class="text-center">
-						<img src="/Moffat-Bay/images/SalishSalmon.png" width="150">
-					</div>
-					<div class="form-group">
-						<h1 class="text-center">Moffat Bay</h1>
-					</div>
-					<div class="form-group">
-						<h2 class="text-center">About Us</h2>
-					</div>
-					<div class="form-group">
-						<p class="text-center">The Moffat Bay Lodge opened in March of 1977. It is a family owned and operated business. 
-						We enjoy being out in nature. There are so many beautiful sites to see around the lodge. If you are
-						looking for beautiful scenic views than this is the place for you. We have gorgeous mountains, 
-						beautiful beaches, and amazing trees and rivers.</p>
-					</div>
-				</form>
-			</section>
-			<section class="col">
-				<form class="form-container" id="contactBox">
-					<div class="form-group">
-						<h2 class="text-center">Contact Us</h2>
-					</div>
-					<div class="form-group">
-						<p class="text-center"><u>Phone Number</u></p>
-						<p class="text-center">555-234-9898</p>
-					</div>
-					<div class="form-group">
-						<p class="text-center"><u>Facebook</u></p>
-						<p class="text-center">Moffat Lodge Group</p>
-					</div>
-					<div class="form-group">
-						<p class="text-center"><u>Email</u></p>
-						<p class="text-center">mbaylodge@hotmail.com</p>
-					</div>
-					<div class="form-group">
-						<p class="text-center" id="questions">Questions? Contact Us!</p>
-						<p class="text-center" id="contact"><a href="/Moffat-Bay/jsp/AboutUs/ContactUs.jsp">Contact Form</a></p>
-					</div>
-				</form>
+	<div class="container-fluid" id="containerHeader">
+		<section class="row justify-content-center">
+			<section class="text-center" id="header">
+				<h1>Account Summary</h1>
 			</section>
 		</section>
 	</div>
-	<jsp:include page="/jsp/Landing/Footer.jsp" flush="true"/>
+	<div class="container-fluid" id="containerMain">
+		<section class="row justify-content-center">
+			<section id="inline">
+				<section class="col-md-3" id="menu">
+					<div class="section">
+						<a href="/Moffat-Bay/jsp/Account/Account.jsp">My Account</a>
+					</div>
+					<div class="section">
+						<a href="/Moffat-Bay/jsp/Account/AccountRes.jsp">Reservation</a>
+					</div>
+				</section>
+				<section class="col-md-3" id="grouped">
+					<div class="infoHeader">
+						<h3>Customer Info</h3>
+					</div>
+					<div class="section">
+						<i class="bi bi-person h4"></i>
+						<label class="info"><%= session.getAttribute("fname") %> <%=session.getAttribute("lname") %></label>
+					</div>
+					<div class="section">
+						<i class="bi bi-envelope h4"></i>
+						<label class="info"><%= session.getAttribute("email") %></label>
+					</div>
+					<div class="section">
+						<i class="bi bi-telephone h4"></i>
+						<label class="info"><%= session.getAttribute("phone") %></label>
+					</div>
+				</section>
+			</section>
+		</section>
+	</div>
 </body>
 </html>

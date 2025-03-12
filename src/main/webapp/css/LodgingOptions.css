@@ -1,0 +1,142 @@
+@charset "UTF-8";
+
+body{
+	background: url(/Moffat-Bay/images/Moffat_Bay_View.jpg) no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: cover;
+	font-family: "Lexend", serif;
+  	font-optical-sizing: auto;
+  	font-weight: 300;
+  	font-style: normal;
+}
+
+.navbar {
+	font-size: 18px;
+	background-color: white !important;
+}
+
+.navbar-brand {
+	font-size: 26px;
+	font-weight: 400;
+}
+
+.nav-link {
+	color: black !important;
+}
+
+.nav-link:hover {
+	color: #505050 !important;
+}
+
+#container1 {
+	padding-top: 20px;
+	background-color: white;
+	border-bottom: 1px black solid;
+}
+
+#container2 {
+	background-color: white;
+	border-bottom: 1px black solid;
+}
+
+#container3 {
+	background-color: white;
+	border-bottom: 1px black solid;
+}
+
+#container4 {
+	background-color: white;
+	margin-bottom: 0px;
+}
+
+#containerBottom {
+	padding-top: 20px;
+	background-color: white;
+	text-align: center;
+}
+
+#header3 p {
+	font-size: 22px;
+	padding-bottom: 25px;
+}
+
+#grouped {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+}
+
+.image {
+	margin: auto;
+}
+
+p {
+	font-size: 18px;
+}
+
+p span {
+	font-size: 16px;
+	
+}
+
+@media screen and (min-width: 600px) {
+	#sections {
+		display: inline-block;
+		vertical-align: top;
+		padding-top: 5vh;
+		padding-bottom: 5vh;
+		padding-left: 5vh;
+		font-size: 26px;
+	}
+	
+	h2 {
+		padding-bottom: 15px;
+	}
+	
+	p {
+		padding-bottom: 15px;
+	}
+	
+	#header h1 {
+		font-size: 45px;
+	}
+
+	#header {
+		width: 60%;
+		padding: 10px 0px 10px 0px;
+		border: 2px solid white;
+	}
+	
+	#containerMain {
+		padding-top: 120px;
+		padding-bottom: 120px;
+		text-align: center;
+		color: white;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.roomImage {
+		width: 100%;
+	}
+	
+	#sections {
+		padding-top: 4vh;
+		padding-bottom: 3vh;
+		padding-left: 1vh;
+		font-size: 22px;
+	}
+
+	#header {
+		width: 80%;
+		padding: 10px 0px 10px 0px;
+	}
+	
+	#containerMain {
+		padding-top: 100px;
+		padding-bottom: 100px;
+		text-align: center;
+		color: white;
+	}
+}
